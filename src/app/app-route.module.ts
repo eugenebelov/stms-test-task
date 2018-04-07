@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationGuard } from "./authentication-guard.service";
+import { LoginService } from "./login/login.service";
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, canActivate: [AuthenticationGuard] },
-  { path: '', redirectTo: '/main', pathMatch: 'full', canActivate: [AuthenticationGuard]}
+  { path: '', redirectTo: '/main', pathMatch: 'full', canActivate: [AuthenticationGuard]},
   { path: '**', redirectTo: '/main', pathMatch: 'full'}
 ]
 
@@ -22,7 +23,8 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [
-    AuthenticationGuard
+    AuthenticationGuard,
+    LoginService
   ],
   declarations: [
     LoginComponent,

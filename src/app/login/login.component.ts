@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { LoginService } from "./login.service";
 
 @Component({
   selector: 'stms-login',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private login:LoginService) { }
 
   ngOnInit() {
+  }
+
+  onLogin() {
+    this.login.login();
+    console.log("LOGIN", this.login.loggedIn());
+
+    this.router.navigate(['/']);
   }
 
 }
