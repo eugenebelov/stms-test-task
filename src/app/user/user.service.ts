@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class LoginService {
+export class UserService {
 
   constructor() { }
 
@@ -10,6 +10,10 @@ export class LoginService {
   login() {
     // here will be an http request
     this.isLoggedIn = true;
+  }
+
+  logout() {
+    this.isLoggedIn = false;
   }
 
   loggedIn(): boolean {
