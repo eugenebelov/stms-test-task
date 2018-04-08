@@ -1,7 +1,15 @@
 #main {
-  margin: 15px;
   padding: 15px;
   border: 1px solid;
+}
+
+.grow-full-height {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch; /* Extra space in Cross Axis */
+  height: 100%;
 }
 
 .main-component {
@@ -25,14 +33,23 @@
 }
 
 .user-card {
-  display: flex;
-  flex-direction: row;
   padding: 10px;
   border: 2px solid grey;
+  min-height: 400px;
 }
 
-.user-card > .user-name,
-.user-card > .user-avatar {
+.user-card > .user-block {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-start; /* align items in Main Axis */
+  align-items: stretch; /* align items in Cross Axis */
+  align-content: stretch; /* Extra space in Cross Axis */
+}
+
+.user-card .user-name,
+.user-card .user-avatar {
   /* display: inline-block;
   position: absolute; */
 

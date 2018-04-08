@@ -12,6 +12,8 @@ export class MainComponent implements OnInit {
 
   constructor(private router: Router, private user: UserService) { }
 
+  userName = "Jackie Chan";
+
   ngOnInit() {
   }
 
