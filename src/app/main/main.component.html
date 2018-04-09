@@ -18,15 +18,17 @@
   </div>
 
   <div class="user-card">
+    <span>User block</span>
 
-    <div class="user-block">
-      <span>User block</span>
-      <div class="user-name">
+    <stms-drag-container>
+      <div class="user-name" stmsDragdrop>
         User name: {{userName}}
       </div>
-      <div class="user-avatar">
-        avatar will be here
+
+      <div class="user-avatar" stmsDragdrop>
+        User avatar
       </div>
-    </div>
+    </stms-drag-container>
+
   </div>
 </div>

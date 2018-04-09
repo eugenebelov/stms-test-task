@@ -38,16 +38,6 @@
   min-height: 400px;
 }
 
-.user-card > .user-block {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: row;
-
-  justify-content: flex-start; /* align items in Main Axis */
-  align-items: stretch; /* align items in Cross Axis */
-  align-content: stretch; /* Extra space in Cross Axis */
-}
-
 .user-card .user-name,
 .user-card .user-avatar {
   /* display: inline-block;

@@ -6,6 +6,8 @@ import { AuthenticationGuard } from "./user/authentication-guard.service";
 import { UserService } from "./user/user.service";
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { DragdropDirective } from './main/directives/dragdrop.directive';
+import { DragContainerComponent } from './main/drag-container/drag-container.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,7 +22,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    DragdropDirective
   ],
   providers: [
     AuthenticationGuard,
@@ -28,7 +31,9 @@ const routes: Routes = [
   ],
   declarations: [
     LoginComponent,
-    MainComponent
+    MainComponent,
+    DragContainerComponent,
+    DragdropDirective
   ]
 })
 export class AppRouteModule { }
