@@ -1,14 +1,36 @@
 {
   "users": [
     {
-      "id": 2,
+      "id": 0,
+      "email": "jim@mail.com",
       "name": "Jim",
       "avatar": ""
     },
     {
-      "id": 3,
+      "id": 1,
       "name": "Will",
+      "email": "will@mail.com",
       "avatar": ""
+    }
+  ],
+  "positions": [
+    {
+      "id": 0,
+      "userId": 0,
+      "type": "user-name",
+      "position": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "user-avatar",
+      "position": {
+        "x": 200,
+        "y": 200
+      }
     }
   ]
 }

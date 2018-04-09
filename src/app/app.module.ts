@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule  } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppRouteModule } from './app-route.module';
@@ -10,7 +11,8 @@ import { AppRouteModule } from './app-route.module';
   ],
   imports: [
     BrowserModule,
-    AppRouteModule
+    AppRouteModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
