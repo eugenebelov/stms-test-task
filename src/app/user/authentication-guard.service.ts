@@ -7,6 +7,8 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 
+import { tap } from 'rxjs/operators';
+
 import { UserService } from "./user.service";
 
 @Injectable()
@@ -14,18 +16,18 @@ export class AuthenticationGuard implements CanActivate {
 
   constructor(private router: Router, private user: UserService) {}
 
-  canActivate(
-    next: ActivatedRouteSnapshot,
+  canActivate(next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
-    console.log("Auth Guard", this.user.loggedIn());
-
-    if(this.user.loggedIn()) {
-      return true;
-    }
-
-    this.router.navigate(['/login']);
-    return false;
+      return this.user
+                  .loggedIn()
+                  .pipe(
+                    tap(
+                      (isLoggedIn) => {
+                        console.log("AuthenticationGuard", isLoggedIn);
+                        if(!isLoggedIn) this.router.navigate(['/login']);
+                      }
+                    )
+                  );
   }
 
 }

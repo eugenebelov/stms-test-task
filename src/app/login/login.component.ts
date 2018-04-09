@@ -16,11 +16,16 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    this.user.login();
+    this.user
+        .login({
+          email: 'jim@mail.com',
+          password: '123'
+        })
+        .subscribe((data) => {
+          console.log("LOGIN COMP", data);
+          this.router.navigate(['/']);
+        });
 
-    console.log("LOGIN", this.user.loggedIn());
-
-    this.router.navigate(['/']);
   }
 
 }

@@ -7,10 +7,25 @@ const jwt = require('jsonwebtoken')
 const server = jsonServer.create()
 const router = jsonServer.router('fake-server/users.json')
 const userdb = JSON.parse(fs.readFileSync('fake-server/users-auth.json', 'UTF-8'))
+const middlewares = jsonServer.defaults()
+
+server.use(middlewares)
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
-// server.use(jsonServer.defaults());
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*')
+  if (req.headers['access-control-request-method']) {
+      res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  }
+  if (req.headers['access-control-request-headers']) {
+      res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  }
+
+  res.header('Access-Control-Max-Age', 60 * 60 * 24 * 365);
+
+  next();
+});
 
 const SECRET_KEY = '123456789'
 
