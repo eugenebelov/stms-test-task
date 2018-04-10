@@ -57,7 +57,10 @@ server.post('/login', (req, res) => {
     return
   }
   const access_token = createToken({email, password})
-  res.status(200).json({access_token})
+  res.status(200).json({
+    access_token,
+    'uid': userdb.users.findIndex(user => user.email === email)
+  })
 })
 
 server.use(/^(?!\/login).*$/,  (req, res, next) => {

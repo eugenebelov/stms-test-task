@@ -1,6 +1,5 @@
 #main {
   padding: 15px;
-  border: 1px solid;
 }
 
 .grow-full-height {
@@ -10,10 +9,6 @@
   align-items: stretch; /* align items in Cross Axis */
   align-content: stretch; /* Extra space in Cross Axis */
   height: 100%;
-}
-
-.main-component {
-
 }
 
 .main-component > nav ul,
@@ -26,26 +21,43 @@
 .main-component .nav-bar {
   border-bottom: 1px solid grey;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10px;
   padding-bottom: 20px;
 }
 
-.user-card {
-  padding: 10px;
-  border: 2px solid grey;
+.main-component .welcome-message h4 {
+  margin: 0;
+}
+
+.main-component .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.main-component .user-info .user-avatar {
+  margin: 0 10px;
+}
+
+.main-component .user-card {
   min-height: 400px;
 }
 
-.user-card .user-name,
-.user-card .user-avatar {
-  /* display: inline-block;
-  position: absolute; */
-
-  border: 3px dashed blue;
-  padding: 10px;
-  margin: 5px;
-  width: 70px;
+.main-component .user-avatar > img{
+  width: 50px;
   height: 50px;
+ }
+
+ .main-component .user-card .user-name,
+ .main-component .user-card .user-avatar {
+   outline: 1px solid blue;
+   padding: 10px;
+ }
+
+.main-component .user-card .user-name:hover,
+.main-component .user-card .user-avatar:hover {
+  outline: 3px dashed blue;
+  padding: 10px;
 }

@@ -1,3 +1,12 @@
 <div class="user-block" (dragover)="onDragOver($event)">
-  <ng-content></ng-content>
+  <div *ngFor="let item of positions"
+        stmsDragdrop
+        [ngClass]="item.type"
+        [x]='item.x'
+        [y]='item.y'
+        [id]='item.id'>
+
+      <span *ngIf="item.type === 'user-name'">User name: {{name}}</span>
+      <img *ngIf="item.type !== 'user-name'" src='{{avatar}}'/>
+  </div>
 </div>

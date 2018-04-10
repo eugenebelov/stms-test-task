@@ -10,24 +10,33 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   private isLoggedIn:boolean = false;
-  private loginUrl: string = 'http://localhost:3000/login';
+  private baseUrl: string = 'http://localhost:3000';
   private token: string;
+  private uid: number;
+
+  public getToken() {
+    return (this.hasSession()) ? JSON.parse(window.localStorage.getItem('user')) : "";
+  }
 
   login(credentials) {
     // here will be an http request
     const {email, password} = credentials;
 
     return this.http
-      .post(this.loginUrl, {email, password})
+      .post(`${this.baseUrl}/login`, {email, password})
       .pipe(
         tap(
           response => {
+            window.localStorage.setItem('user', JSON.stringify({
+              'token': response['access_token'],
+              'uid': response['uid']
+            }));
+
             this.isLoggedIn = true;
             this.token = response['access_token'];
+            this.uid = response['uid'];
 
-            window.localStorage.setItem('user', JSON.stringify({'token': this.token}));
-
-            console.log("LOGIN SERV OK", this.hasSession());
+            console.log("LOGIN SERV OK", this.uid);
           }
         )
       )
@@ -44,6 +53,9 @@ export class UserService {
     if(authkey === '') return false;
 
     const authkeyData = JSON.parse(authkey);
+    this.isLoggedIn = true;
+    this.token = authkeyData.access_token;
+    this.uid = authkeyData.uid;
     return (authkeyData && authkeyData.token) ? true : false;
   }
 
@@ -51,4 +63,24 @@ export class UserService {
     return Observable.of(this.hasSession());
   }
 
+  public getUserDetails(): any {
+    console.log(this.uid);
+    return this.http.get(`${this.baseUrl}/users/${this.uid}`);
+  }
+
+  public getUserItemPositions(): any {
+    console.log('getUserItemPositions', this.uid);
+    return this.http.get(`${this.baseUrl}/users/${this.uid}/positions`);
+  }
+
+  public saveUserItemPositions(pid, x, y): any {
+    console.log(pid, x, y);
+
+    return this.http.patch(`${this.baseUrl}/positions/${pid}`, {
+      'position': {
+        'x': x,
+        'y': y
+      }
+    });
+  }
 }

@@ -4,13 +4,13 @@
       "id": 0,
       "email": "jim@mail.com",
       "name": "Jim",
-      "avatar": ""
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairStraightStrand&accessoriesType=Prescription02&hatColor=Red&hairColor=Auburn&facialHairType=BeardMedium&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Default&eyebrowType=UpDownNatural&mouthType=Tongue&skinColor=Tanned"
     },
     {
       "id": 1,
       "name": "Will",
       "email": "will@mail.com",
-      "avatar": ""
+      "avatar": "https://avataaars.io/?avatarStyle=Circle&topType=LongHairFroBand&accessoriesType=Kurt&hairColor=Blonde&facialHairType=BeardMagestic&facialHairColor=Black&clotheType=Overall&clotheColor=PastelOrange&graphicType=Skull&eyeType=Surprised&eyebrowType=UnibrowNatural&mouthType=Disbelief&skinColor=Black"
     }
   ],
   "positions": [
@@ -19,17 +19,35 @@
       "userId": 0,
       "type": "user-name",
       "position": {
-        "x": 0,
-        "y": 0
+        "x": 340,
+        "y": 204
       }
     },
     {
       "id": 1,
+      "userId": 0,
+      "type": "user-avatar",
+      "position": {
+        "x": 218,
+        "y": 93
+      }
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "user-name",
+      "position": {
+        "x": 50,
+        "y": 50
+      }
+    },
+    {
+      "id": 3,
       "userId": 1,
       "type": "user-avatar",
       "position": {
-        "x": 200,
-        "y": 200
+        "x": 262,
+        "y": 268
       }
     }
   ]

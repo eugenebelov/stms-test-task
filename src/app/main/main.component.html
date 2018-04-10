@@ -1,33 +1,29 @@
 <div id="main" class="main-component">
   <nav class="nav-bar">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+    <div class="welcome-message">
+      <h4>Welcome to our drag'n'drop madness!</h4>
+    </div>
 
     <div class="user-info">
-      <span> < User name: {{userName}} > |</span>
-      <span> < User avatar ></span>
-      <button type="button" value="logout" (click)="onLogout()">Logout</button>
+      <div class="user-name">
+        Hi, {{userModel.name}}
+      </div>
+      <div class="user-avatar">
+        <img src='{{userModel.avatar}}'/>
+      </div>
+      <button type="button"
+              class="btn btn-primary"
+              value="logout"
+              (click)="onLogout()">Logout</button>
     </div>
   </nav>
-
-  <div class="welcome-message">
-    <h4>Welcome message, {{userName}}</h4>
-  </div>
 
   <div class="user-card">
     <span>User block</span>
 
-    <stms-drag-container>
-      <div class="user-name" stmsDragdrop>
-        User name: {{userName}}
-      </div>
-
-      <div class="user-avatar" stmsDragdrop>
-        User avatar
-      </div>
+    <stms-drag-container
+        [name]='userModel.name'
+        [avatar]='userModel.avatar'>
     </stms-drag-container>
 
   </div>
