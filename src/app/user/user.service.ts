@@ -25,7 +25,9 @@ export class UserService {
             this.isLoggedIn = true;
             this.token = response['access_token'];
 
-            console.log("LOGIN SERV", this.token);
+            window.localStorage.setItem('user', JSON.stringify({'token': this.token}));
+
+            console.log("LOGIN SERV OK", this.hasSession());
           }
         )
       )
@@ -33,10 +35,20 @@ export class UserService {
 
   logout() {
     this.isLoggedIn = false;
+    window.localStorage.setItem('user', '');
+  }
+
+  hasSession(): boolean {
+    const authkey = window.localStorage.getItem('user');
+
+    if(authkey === '') return false;
+
+    const authkeyData = JSON.parse(authkey);
+    return (authkeyData && authkeyData.token) ? true : false;
   }
 
   loggedIn(): Observable<boolean> {
-    return Observable.of(this.isLoggedIn);
+    return Observable.of(this.hasSession());
   }
 
 }
