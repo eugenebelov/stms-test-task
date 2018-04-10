@@ -48,11 +48,13 @@ export class DragdropDirective {
     this.itemCoords = new Point(this.el.nativeElement.getBoundingClientRect().left,
                                 this.el.nativeElement.getBoundingClientRect().top);
 
-    this.itemSize = new Point(this.el.nativeElement.getBoundingClientRect().height,
-                              this.el.nativeElement.getBoundingClientRect().width);
+    this.itemSize = new Point(
+      this.el.nativeElement.getBoundingClientRect().width,
+      this.el.nativeElement.getBoundingClientRect().height);
 
-    this.canvasSize = new Point(this.parentEl.getBoundingClientRect().height,
-                              this.parentEl.getBoundingClientRect().width);
+    this.canvasSize = new Point(
+      this.parentEl.getBoundingClientRect().width,
+      this.parentEl.getBoundingClientRect().height);
 
     this.setCoords(this.x, this.y);
   }

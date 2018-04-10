@@ -32,8 +32,6 @@ export class DragContainerComponent implements OnInit {
 
         return p;
       });
-
-      console.log('DragContainerComponent', this.positions);
     });
   }
 

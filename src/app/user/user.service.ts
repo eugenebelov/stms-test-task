@@ -35,8 +35,6 @@ export class UserService {
             this.isLoggedIn = true;
             this.token = response['access_token'];
             this.uid = response['uid'];
-
-            console.log("LOGIN SERV OK", this.uid);
           }
         )
       )
@@ -64,18 +62,14 @@ export class UserService {
   }
 
   public getUserDetails(): any {
-    console.log(this.uid);
     return this.http.get(`${this.baseUrl}/users/${this.uid}`);
   }
 
   public getUserItemPositions(): any {
-    console.log('getUserItemPositions', this.uid);
     return this.http.get(`${this.baseUrl}/users/${this.uid}/positions`);
   }
 
   public saveUserItemPositions(pid, x, y): any {
-    console.log(pid, x, y);
-
     return this.http.patch(`${this.baseUrl}/positions/${pid}`, {
       'position': {
         'x': x,

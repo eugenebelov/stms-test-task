@@ -34,8 +34,6 @@ export class MainComponent implements OnInit {
 
           this.userModel.name = name;
           this.userModel.avatar = avatar;
-
-          console.log(this.userModel)
         });
   }
 
