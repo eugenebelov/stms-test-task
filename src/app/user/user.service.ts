@@ -27,8 +27,6 @@ export class UserService {
       .pipe(
         tap(
           response => {
-            console.log(response);
-
             window.localStorage.setItem('user', JSON.stringify({
               'token': response['access_token'],
               'uid': response['uid']
@@ -51,7 +49,7 @@ export class UserService {
     const authkey = window.localStorage.getItem('user');
 
     if(authkey === null || authkey === '') return false;
-    
+
     const authkeyData = JSON.parse(authkey);
 
     this.isLoggedIn = true;
