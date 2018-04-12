@@ -1,6 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@stms-app/*": ["app/*"],
+      "@stms-main/*": ["app/main/*"],
+      "@stms-common/*": ["app/common/*"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,

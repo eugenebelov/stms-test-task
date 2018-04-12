@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { UserService } from '../user/user.service';
+import { UserService } from '@stms-app/user/user.service';
 
 class UserModel {
   name: string = "";

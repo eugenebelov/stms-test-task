@@ -30,7 +30,9 @@ export class LoginComponent implements OnInit {
         })
         .subscribe(
           (data) => { this.router.navigate(['/']) },
-          (errorResponse) => { this.errorMessage = errorResponse.error.message; }
+          (errorResponse) => {
+            this.errorMessage = errorResponse.error.message; 
+          }
         );
 
     this.loginForm.reset({'password': ''});

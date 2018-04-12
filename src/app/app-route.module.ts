@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthenticationGuard } from "./user/authentication-guard.service";
-import { UserService } from "./user/user.service";
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
-import { DragdropDirective } from './main/directives/dragdrop.directive';
-import { DragContainerComponent } from './main/drag-container/drag-container.component';
+import { AuthenticationGuard } from "@stms-app/user/auth/auth-guard.service";
+import { UserService } from "@stms-app/user/user.service";
+import { LoginComponent } from '@stms-app/login/login.component';
+import { MainComponent } from '@stms-app/main/main.component';
+import { DragdropDirective } from '@stms-common/dragndrop/dragdrop.directive';
+import { DragContainerComponent } from '@stms-common/dragndrop/drag-container.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

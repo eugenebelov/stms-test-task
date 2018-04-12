@@ -6,10 +6,9 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-
 import { tap } from 'rxjs/operators';
 
-import { UserService } from "./user.service";
+import { UserService } from "../user.service";
 
 @Injectable()
 export class AuthenticationGuard implements CanActivate {

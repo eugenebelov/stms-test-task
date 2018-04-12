@@ -7,7 +7,7 @@ import {
   Input
 } from '@angular/core';
 
-import { UserService } from '../../user/user.service';
+import { UserService } from '@stms-app/user/user.service';
 
 class Point {
   xcoord: number = 0;
