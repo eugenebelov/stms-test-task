@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from "../user/user.service";
+import { UserService } from "@stms-app/user/user.service";
 
 @Component({
   selector: 'stms-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         .subscribe(
           (data) => { this.router.navigate(['/']) },
           (errorResponse) => {
-            this.errorMessage = errorResponse.error.message; 
+            this.errorMessage = errorResponse.error.message;
           }
         );
 

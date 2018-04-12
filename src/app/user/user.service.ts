@@ -50,8 +50,8 @@ export class UserService {
   hasSession(): boolean {
     const authkey = window.localStorage.getItem('user');
 
-    if(authkey === null) return false;
-
+    if(authkey === null || authkey === '') return false;
+    
     const authkeyData = JSON.parse(authkey);
 
     this.isLoggedIn = true;

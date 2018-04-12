@@ -11,7 +11,7 @@ class Position {
 @Component({
   selector: 'stms-drag-container',
   templateUrl: './drag-container.component.html',
-  styleUrls: ['./drag-container.component.css']
+  styleUrls: ['./drag-container.component.scss']
 })
 export class DragContainerComponent implements OnInit {
   @Input() name: string;

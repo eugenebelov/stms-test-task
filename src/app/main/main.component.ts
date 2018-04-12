@@ -16,7 +16,7 @@ class UserModel {
 @Component({
   selector: 'stms-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'],
+  styleUrls: ['./main.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit {

@@ -1,0 +1,66 @@
+#main {
+  padding: 15px;
+}
+
+$border-color: blue;
+
+@mixin avatar-size($w: 50px, $h: 50px) {
+  & > img {
+    width: $w;
+    height: $h
+  }
+}
+
+@mixin outline($size, $type: solid, $gap: 10px) {
+  outline: $size $type $border-color;
+  padding: $gap;
+}
+
+.main-component {
+  > nav ul,
+  > nav li {
+    margin: 0px;
+    padding: 0px;
+    display: inline-block;
+  }
+
+  .nav-bar {
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    .user-avatar {
+      margin: 0 10px;
+      @include avatar-size();
+    }
+  }
+
+  .user-card {
+    min-height: 400px;
+
+    .user-name,
+    .user-avatar {
+      @include outline(1px);
+      @include avatar-size();
+
+      &:hover {
+        @include outline(3px, dashed);
+      }
+    }
+  }
+
+  .welcome-message {
+    h4 {
+      margin: 0;
+    }
+  }
+}
