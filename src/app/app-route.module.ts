@@ -7,8 +7,7 @@ import { AuthenticationGuard } from "@stms-app/user/auth/auth-guard.service";
 import { UserService } from "@stms-app/user/user.service";
 import { LoginComponent } from '@stms-app/login/login.component';
 import { MainComponent } from '@stms-app/main/main.component';
-import { DragdropDirective } from '@stms-common/dragndrop/dragdrop.directive';
-import { DragContainerComponent } from '@stms-common/dragndrop/drag-container.component';
+import { StmsCommonModule } from '@stms-app/common/common.module';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -22,11 +21,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    StmsCommonModule
   ],
   exports: [
-    RouterModule,
-    DragdropDirective
+    RouterModule
   ],
   providers: [
     AuthenticationGuard,
@@ -34,9 +33,7 @@ const routes: Routes = [
   ],
   declarations: [
     LoginComponent,
-    MainComponent,
-    DragContainerComponent,
-    DragdropDirective
+    MainComponent
   ]
 })
 export class AppRouteModule { }
